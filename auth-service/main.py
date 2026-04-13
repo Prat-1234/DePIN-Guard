@@ -32,7 +32,9 @@ EMAIL_PASS = os.getenv("EMAIL_PASS")
 # ==========================================
 # 🗄️ MONGODB SETUP
 # ==========================================
-MONGODB_URI = os.getenv("MONGODB_URI", "mongodb+srv://2335mohitsingh_db_user:No5gw57Bcr83i4NO@cluster0.feydvzb.mongodb.net/depin_guard?retryWrites=true&w=majority")
+MONGODB_URI = os.getenv("MONGODB_URI")
+if not MONGODB_URI:
+    raise RuntimeError("MONGODB_URI environment variable is required!")
 mongodb_client = None
 db = None
 
