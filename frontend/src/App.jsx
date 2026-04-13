@@ -17,8 +17,8 @@ import SecurityPage from './pages/SecurityPage';
 // Log environment configuration
 if (typeof window !== 'undefined') {
   console.log('🔧 Frontend Configuration:');
-  console.log('  API URL:', import.meta.env.VITE_API_URL || 'http://localhost:8000');
-  console.log('  Auth URL:', import.meta.env.VITE_AUTH_URL || 'http://localhost:8001');
+  console.log('  API URL:', import.meta.env.VITE_API_URL);
+  console.log('  Auth URL:', import.meta.env.VITE_AUTH_URL);
 }
 
 const isTokenUsable = (token) => {

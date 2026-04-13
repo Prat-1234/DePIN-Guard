@@ -36,7 +36,7 @@ load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 
 API_KEY            = os.getenv("DEPIN_API_KEY")
 SECRET_KEY         = os.getenv("JWT_SECRET_KEY")
-AI_SERVICE_URL     = os.getenv("AI_SERVICE_URL", "http://localhost:10000/predict")
+AI_SERVICE_URL     = os.getenv("AI_SERVICE_URL")
 AI_TIMEOUT_SECONDS = float(os.getenv("AI_TIMEOUT_SECONDS", "4"))
 AI_RETRY_COUNT     = int(os.getenv("AI_RETRY_COUNT", "1"))
 SENSOR_PAYLOAD_MAX_AGE_SECONDS = int(os.getenv("SENSOR_PAYLOAD_MAX_AGE_SECONDS", "86400"))
@@ -208,10 +208,7 @@ app.include_router(fraud_router, prefix="/api", dependencies=[Depends(verify_api
 # CORS
 # ---------------------------------------------------------------------------
 default_origins = [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:5173",
+    "https://depin-guard-frontend.vercel.app",
 ]
 cors_env       = os.getenv("CORS_ALLOWED_ORIGINS", "")
 cors_regex_env = os.getenv("CORS_ALLOWED_ORIGIN_REGEX", "").strip()

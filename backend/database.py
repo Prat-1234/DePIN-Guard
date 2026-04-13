@@ -7,7 +7,7 @@ from motor.motor_asyncio import AsyncIOMotorClient as AsyncClient, AsyncIOMotorD
 import certifi
 
 # MongoDB connection
-MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost:27017/depin_guard")
+MONGODB_URI = os.getenv("MONGODB_URI")
 mongodb_client: Optional[AsyncClient] = None
 db: Optional[AsyncDatabase] = None
 

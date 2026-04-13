@@ -32,7 +32,7 @@ EMAIL_PASS = os.getenv("EMAIL_PASS")
 # ==========================================
 # 🗄️ MONGODB SETUP
 # ==========================================
-MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://localhost:27017/depin_guard")
+MONGODB_URI = os.getenv("MONGODB_URI", "mongodb+srv://2335mohitsingh_db_user:No5gw57Bcr83i4NO@cluster0.feydvzb.mongodb.net/depin_guard?retryWrites=true&w=majority")
 mongodb_client = None
 db = None
 
@@ -176,8 +176,11 @@ app = FastAPI(title="DePIN Auth Service", version="2.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
+    allow_origins=[
+        "https://depin-guard-frontend.vercel.app",
+        "https://depin-guard-backend.onrender.com",
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
